@@ -58,7 +58,10 @@ IRC_NICK_REGEX = r'[a-zA-Z\[\]\\`_\^\{\|\}][a-zA-Z0-9\[\]\\`_\^\{\|\}-]+'
 # (note that <to> is being taken care of in split_and_send_message
 #  using MESSAGE_SIZE_LIMIT_INCLUDES_ADDRESEE)
 # And one more byte for b'\x03' -- EXT - End Of Text
-IRC_MESSAGE_SIZE_LIMIT = 499
+#IRC_MESSAGE_SIZE_LIMIT = 499
+
+# Workaround: There is some bug truncating long lines somewhere between errbot and inspircd. -DF
+IRC_MESSAGE_SIZE_LIMIT = 450
 
 try:
     import irc.connection
